@@ -61,7 +61,7 @@ class Network(object):
         xs, zs = self.feed(x)
         wGrad[-1], bGrad[-1] = derivatives(xs[-2], y, xs[-1])
         for l in xrange(2, self.nLayers):
-            # Wondering why not the commented line
+            # Todo: add explanation to this formula
             # bGrad[-l] = np.dot(bGrad[-l + 1], self.weight[-l + 1]) * (1 - xs[-l]) * xs[-l]
             bGrad[-l] = np.dot(self.weight[-l + 1].transpose(), bGrad[-l + 1]) * xs[-l] * (1 - xs[-l])
             wGrad[-l] = bGrad[-l] * xs[-l - 1].transpose()

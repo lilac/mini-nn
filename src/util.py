@@ -1,4 +1,5 @@
 import mnist_loader as loader
+import mnist
 import network
 
 EPOCHS = 100
@@ -6,7 +7,8 @@ BATCH_SIZE = 10
 ETA = 0.1
 SIZES = [28 * 28, 15, 10]
 
-(train_set, validation_set, test_set) = loader.load_data_wrapper()
+# (train_set, validation_set, test_set) = loader.load_data_wrapper()
+(train_set, validation_set, test_set) = mnist.load()
 
 
 def train(args):
