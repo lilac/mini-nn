@@ -1,18 +1,17 @@
 ## 关于
 
-这是一个小巧的神经网络实现。它不依赖第三方数据学习库。
+这是一个小巧的多层神经网络实现。它不依赖第三方数据学习库。
 
 
 ## 安装
 
 下载后切换到项目根目录
 
-###（可选）安装python虚拟环境
+1. 安装python虚拟环境（可选）
 ```
 virtualenv venv
 ```
-
-### 安装依赖
+2. 安装依赖
 ```
 pip install -r requrements.txt
 ```
@@ -53,4 +52,15 @@ python utils.py e -d ../samples ../models/best.pkl.gzip
 ```
 此命令会预测出`samples`目录下所有图片中的数字。
 
-如果省去`-d`参数，则它会默认评估mnist数据集中测试集的准备率。
+如果省去`-d`参数，则它会默认评估mnist数据集中测试集的准确率。
+```
+python utils.py e ../models/best.pkl.gzip
+```
+
+## 结果
+目前训练得最优模型保存在文件`models/best.pkl.gzip`中。它的网络结构为
+```
+输入层  中间层  输出层
+784-->56->28->10
+```
+此模型在mnist测试集中的错误率为5.85％。
